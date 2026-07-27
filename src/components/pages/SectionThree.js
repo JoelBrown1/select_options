@@ -1,6 +1,6 @@
 import React from 'react';
 import Tabs from '../Tabs/Tabs';
-import Dropdown from '../Dropdown/Dropdown';
+import PortalDropdown from '../PortalDropdown/PortalDropdown';
 import FlippingDropdown from '../FlippingDropdown/FlippingDropdown';
 import './SectionThree.scss';
 
@@ -41,7 +41,7 @@ const TAB_TWO_CONTENT = (
         <li key={n} className="section-three__scroll-list-item">
           <span className="section-three__scroll-list-item-label">List Item {n}</span>
           <div className="section-three__scroll-list-item-actions">
-            <Dropdown options={DROPDOWN_OPTIONS} />
+            <PortalDropdown options={DROPDOWN_OPTIONS} />
             <button type="button" className="section-three__scroll-list-item-button">Go</button>
           </div>
         </li>
