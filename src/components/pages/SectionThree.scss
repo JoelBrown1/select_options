@@ -13,13 +13,36 @@
   max-height: 180px;
   overflow-y: auto;
   border: 1px solid #d1d5db;
+}
 
-  li {
-    padding: 8px 12px;
-    border-bottom: 1px solid #e5e7eb;
+.section-three__scroll-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e7eb;
 
-    &:last-child {
-      border-bottom: none;
-    }
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.section-three__scroll-list-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-three__scroll-list-item-button {
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #1f2937;
+  font-size: 0.85em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e5e7eb;
   }
 }

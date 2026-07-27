@@ -1,5 +1,6 @@
 import React from 'react';
 import Tabs from '../Tabs/Tabs';
+import Dropdown from '../Dropdown/Dropdown';
 import './SectionThree.scss';
 
 const TAB_ONE_CONTENT = (
@@ -10,6 +11,9 @@ const TAB_ONE_CONTENT = (
   </>
 );
 
+const DROPDOWN_OPTIONS = ['Option A', 'Option B', 'Option C'];
+const LIST_ITEM_NUMBERS = Array.from({ length: 20 }, (_, index) => index + 1);
+
 const TAB_TWO_CONTENT = (
   <>
     <h2 className="section-three__subsection-heading">Subsection One</h2>
@@ -19,26 +23,15 @@ const TAB_TWO_CONTENT = (
 
     <h2 className="section-three__subsection-heading">Subsection Two</h2>
     <ul className="section-three__scroll-list">
-      <li>List Item 1</li>
-      <li>List Item 2</li>
-      <li>List Item 3</li>
-      <li>List Item 4</li>
-      <li>List Item 5</li>
-      <li>List Item 6</li>
-      <li>List Item 7</li>
-      <li>List Item 8</li>
-      <li>List Item 9</li>
-      <li>List Item 10</li>
-      <li>List Item 11</li>
-      <li>List Item 12</li>
-      <li>List Item 13</li>
-      <li>List Item 14</li>
-      <li>List Item 15</li>
-      <li>List Item 16</li>
-      <li>List Item 17</li>
-      <li>List Item 18</li>
-      <li>List Item 19</li>
-      <li>List Item 20</li>
+      {LIST_ITEM_NUMBERS.map((n) => (
+        <li key={n} className="section-three__scroll-list-item">
+          <span className="section-three__scroll-list-item-label">List Item {n}</span>
+          <div className="section-three__scroll-list-item-actions">
+            <Dropdown options={DROPDOWN_OPTIONS} />
+            <button type="button" className="section-three__scroll-list-item-button">Go</button>
+          </div>
+        </li>
+      ))}
     </ul>
 
     <h2 className="section-three__subsection-heading">Subsection Three</h2>
