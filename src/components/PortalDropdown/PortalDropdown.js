@@ -42,10 +42,11 @@ function PortalDropdown({ options }) {
       return undefined;
     }
 
-    // A window/page-level scroll event's target is `document`; a scroll
-    // on an inner scrollable element (e.g. the list ancestor) targets
-    // that element instead. Only the latter should close/reposition the
-    // menu — window-level scroll is intentionally ignored.
+    // A window/page-level scroll event's target is `document`; we
+    // unconditionally reposition the menu to keep it attached to its trigger.
+    // A scroll on an inner scrollable element (e.g. the list ancestor) targets
+    // that element instead and follows the REPOSITION_ON_SCROLL gating: either
+    // reposition the menu or close it.
     function handleScroll(event) {
       console.log('scroll event', event.target);
       if (event.target === document) {
