@@ -50,6 +50,7 @@ function PortalDropdown({ options }) {
       console.log('scroll event', event.target);
       if (event.target === document) {
         console.log('scrolling on the window');
+        setMenuPosition(computeMenuPosition(rootRef.current));
         return;
       }
 
