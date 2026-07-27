@@ -41,7 +41,23 @@ function PortalDropdown({ options }) {
       return undefined;
     }
 
-    function handleScrollOrResize() {
+    // A window/page-level scroll event's target is `document`; a scroll
+    // on an inner scrollable element (e.g. the list ancestor) targets
+    // that element instead. Only the latter should close/reposition the
+    // menu — window-level scroll is intentionally ignored.
+    function handleScroll(event) {
+      if (event.target === document) {
+        return;
+      }
+
+      if (REPOSITION_ON_SCROLL) {
+        setMenuPosition(computeMenuPosition(rootRef.current));
+      } else {
+        setIsOpen(false);
+      }
+    }
+
+    function handleResize() {
       if (REPOSITION_ON_SCROLL) {
         setMenuPosition(computeMenuPosition(rootRef.current));
       } else {
@@ -51,11 +67,11 @@ function PortalDropdown({ options }) {
 
     // capture: true so this also fires for scroll events on the
     // scrollable list ancestor, not just window-level scroll.
-    window.addEventListener('scroll', handleScrollOrResize, true);
-    window.addEventListener('resize', handleScrollOrResize);
+    window.addEventListener('scroll', handleScroll, true);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('scroll', handleScrollOrResize, true);
-      window.removeEventListener('resize', handleScrollOrResize);
+      window.removeEventListener('scroll', handleScroll, true);
+      window.removeEventListener('resize', handleResize);
     };
   }, [isOpen]);
 
