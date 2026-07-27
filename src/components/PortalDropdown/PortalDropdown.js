@@ -37,6 +37,7 @@ function PortalDropdown({ options }) {
   }, []);
 
   useEffect(() => {
+    console.log('isOpen changed', isOpen);
     if (!isOpen) {
       return undefined;
     }
@@ -46,7 +47,9 @@ function PortalDropdown({ options }) {
     // that element instead. Only the latter should close/reposition the
     // menu — window-level scroll is intentionally ignored.
     function handleScroll(event) {
+      console.log('scroll event', event.target);
       if (event.target === document) {
+        console.log('scrolling on the window');
         return;
       }
 
@@ -76,6 +79,7 @@ function PortalDropdown({ options }) {
   }, [isOpen]);
 
   function handleTriggerClick() {
+    console.log('trigger clicked');
     if (isOpen) {
       setIsOpen(false);
       return;
