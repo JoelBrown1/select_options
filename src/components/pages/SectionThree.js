@@ -13,6 +13,8 @@ const TAB_ONE_CONTENT = (
 );
 
 const DROPDOWN_OPTIONS = ['Option A', 'Option B', 'Option C'];
+const SECONDARY_DROPDOWN_OPTIONS = ['Choice X', 'Choice Y', 'Choice Z'];
+const SUBSECTION_FOUR_ITEM_NAMES = ['Item One', 'Item Two', 'Item Three'];
 const LIST_ITEM_NUMBERS = Array.from({ length: 20 }, (_, index) => index + 1);
 
 const TAB_TWO_CONTENT = (
@@ -52,6 +54,17 @@ const TAB_TWO_CONTENT = (
     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
     <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
     <p>Et harum quidem rerum facilis est et expedita distinctio.</p>
+    <ul className="section-three__item-list">
+      {SUBSECTION_FOUR_ITEM_NAMES.map((name) => (
+        <li key={name} className="section-three__item-list-row">
+          <span className="section-three__item-list-name">{name}</span>
+          <div className="section-three__item-list-dropdowns">
+            <PortalDropdown options={DROPDOWN_OPTIONS} />
+            <PortalDropdown options={SECONDARY_DROPDOWN_OPTIONS} />
+          </div>
+        </li>
+      ))}
+    </ul>
 
     <h2 className="section-three__subsection-heading">Subsection Five</h2>
     <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
