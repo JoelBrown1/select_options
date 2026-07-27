@@ -5,3 +5,21 @@
     margin-top: 16px;
   }
 }
+
+.section-three__scroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid #d1d5db;
+
+  li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e5e7eb;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
